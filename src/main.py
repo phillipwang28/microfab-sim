@@ -1,4 +1,3 @@
-# src/run_all.py
 import os, csv
 import numpy as np
 from deal_grove import deal_grove_thickness
@@ -8,7 +7,7 @@ from visual import plot_dopant_profiles, draw_wafer_cross_section
 os.makedirs("figures", exist_ok=True)
 os.makedirs("data", exist_ok=True)
 
-# ---- 1) Oxides (swap in your real constants) ----
+# Oxides (dummy constants for now)
 field = deal_grove_thickness(B_nm2_per_min=1.6e5, B_over_A_nm_per_min=60,  t_min=100)
 gate  = deal_grove_thickness(B_nm2_per_min=5.0e4, B_over_A_nm_per_min=3.8, t_min=50)
 inter = deal_grove_thickness(B_nm2_per_min=3.0e4, B_over_A_nm_per_min=2.5, t_min=40)
@@ -19,7 +18,7 @@ with open("data/oxide_table.csv","w",newline="", encoding="utf-8-sig") as f:
     w.writerow(["Gate oxide (nm)", f"{gate:.1f}"])
     w.writerow(["Intermediate oxide (nm)", f"{inter:.1f}"])
 
-# ---- 2) Dopants (example placeholders—replace with your lab values) ----
+# Dopants (dummy values)
 x_um = np.linspace(0, 2.0, 2001)
 NA_bg = 1e15*np.ones_like(x_um)  # wafer p background
 
