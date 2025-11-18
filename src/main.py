@@ -7,10 +7,13 @@ from visual import plot_dopant_profiles, draw_wafer_cross_section
 os.makedirs("figures", exist_ok=True)
 os.makedirs("data", exist_ok=True)
 
-# Oxides (dummy constants for now)
-field = deal_grove_thickness(B_nm2_per_min=1.6e5, B_over_A_nm_per_min=60,  t_min=100)
-gate  = deal_grove_thickness(B_nm2_per_min=5.0e4, B_over_A_nm_per_min=3.8, t_min=50)
-inter = deal_grove_thickness(B_nm2_per_min=3.0e4, B_over_A_nm_per_min=2.5, t_min=40)
+# Oxides (B, B/A values determined from 1965 Deal-Grove Paper)
+#wet oxidation
+field = deal_grove_thickness(B_nm2_per_min=4600, B_over_A_nm_per_min=20.354,  t_min=100)
+
+#dry oxidation
+gate  = deal_grove_thickness(B_nm2_per_min=450, B_over_A_nm_per_min=5, t_min=50)
+inter = deal_grove_thickness(B_nm2_per_min=322.5, B_over_A_nm_per_min=2.53, t_min=40)
 
 with open("data/oxide_table.csv","w",newline="", encoding="utf-8-sig") as f:
     w=csv.writer(f); w.writerow(["Parameter","Value"])
